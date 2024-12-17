@@ -20,7 +20,8 @@ namespace DBLOG
         private string _objectname,    // 对象名
                        _starttime, _endtime, // 开始时间 结束时间
                        _MinLSN, // 开始LSN
-                       _tsql;
+                       _tsql,
+            _search;
         private DatabaseOperation DB;  // 数据库操作对象
         /// <summary>
         /// Readed Percent (0-100).
@@ -58,7 +59,7 @@ namespace DBLOG
         /// <param name="pEndTime">End Time</param>
         /// <param name="pObjectName">Table Name, Blank for query all objects.</param>
         /// <returns>DatabaseLog array.</returns>
-        public DatabaseLog[] ReadLog(string pStartTime, string pEndTime, string pObjectName)
+        public DatabaseLog[] ReadLog(string pStartTime, string pEndTime, string pObjectName,string searchTerm)
         {
             List<DatabaseLog> logs, dmllog, ddllog;
 
@@ -66,7 +67,7 @@ namespace DBLOG
             _objectname = (_objectname.Length > 0 && _objectname.Contains(".") == false ? "dbo." : "") + _objectname;
             _starttime = pStartTime;
             _endtime = pEndTime;
-
+            _search = searchTerm;
             if (File.Exists(LogFile) == true)
             {
                 File.Delete(LogFile);
@@ -208,6 +209,7 @@ namespace DBLOG
 
                 i = i + 1;
             }
+            dmllog = dmllog.Where(l => l.RedoSQL.Contains(_search)).ToList();
 
             dmllog = dmllog.OrderBy(p => p.TransactionID).ToList();
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtConnectionstring = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTablename = new System.Windows.Forms.TextBox();
@@ -51,11 +51,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsProg = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsRows = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.search = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -70,16 +72,16 @@
             this.txtConnectionstring.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConnectionstring.Location = new System.Drawing.Point(140, 2);
             this.txtConnectionstring.Name = "txtConnectionstring";
-            this.txtConnectionstring.Size = new System.Drawing.Size(1000, 26);
+            this.txtConnectionstring.Size = new System.Drawing.Size(1000, 30);
             this.txtConnectionstring.TabIndex = 45;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(2, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 20);
+            this.label4.Size = new System.Drawing.Size(158, 23);
             this.label4.TabIndex = 44;
             this.label4.Text = "ConnectionString";
             // 
@@ -88,7 +90,7 @@
             this.txtTablename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTablename.Location = new System.Drawing.Point(699, 31);
             this.txtTablename.Name = "txtTablename";
-            this.txtTablename.Size = new System.Drawing.Size(170, 26);
+            this.txtTablename.Size = new System.Drawing.Size(170, 30);
             this.txtTablename.TabIndex = 43;
             // 
             // dtEndtime
@@ -101,7 +103,7 @@
             this.dtEndtime.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dtEndtime.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtEndtime.Name = "dtEndtime";
-            this.dtEndtime.Size = new System.Drawing.Size(190, 26);
+            this.dtEndtime.Size = new System.Drawing.Size(190, 30);
             this.dtEndtime.TabIndex = 42;
             this.dtEndtime.TabStop = false;
             this.dtEndtime.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
@@ -109,10 +111,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(2, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.Size = new System.Drawing.Size(95, 23);
             this.label1.TabIndex = 37;
             this.label1.Text = "StartTime";
             // 
@@ -126,7 +128,7 @@
             this.dtStarttime.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dtStarttime.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtStarttime.Name = "dtStarttime";
-            this.dtStarttime.Size = new System.Drawing.Size(190, 26);
+            this.dtStarttime.Size = new System.Drawing.Size(190, 30);
             this.dtStarttime.TabIndex = 41;
             this.dtStarttime.TabStop = false;
             this.dtStarttime.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
@@ -134,27 +136,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(605, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.Size = new System.Drawing.Size(108, 23);
             this.label3.TabIndex = 39;
             this.label3.Text = "TableName";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(301, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 38;
             this.label2.Text = "EndTime";
             // 
             // btnReadlog
             // 
             this.btnReadlog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReadlog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadlog.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
+            this.btnReadlog.FlatAppearance.BorderSize = 2;
+            this.btnReadlog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReadlog.Location = new System.Drawing.Point(1162, 3);
             this.btnReadlog.Name = "btnReadlog";
             this.btnReadlog.Size = new System.Drawing.Size(107, 51);
@@ -171,14 +175,14 @@
             this.dgLogs.AutoGenerateColumns = false;
             this.dgLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgLogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.transactionIDDataGridViewTextBoxColumn,
@@ -195,6 +199,7 @@
             this.dgLogs.Name = "dgLogs";
             this.dgLogs.ReadOnly = true;
             this.dgLogs.RowHeadersVisible = false;
+            this.dgLogs.RowHeadersWidth = 51;
             this.dgLogs.RowTemplate.Height = 23;
             this.dgLogs.ShowCellToolTips = false;
             this.dgLogs.ShowEditingIcon = false;
@@ -207,6 +212,7 @@
             // 
             this.transactionIDDataGridViewTextBoxColumn.DataPropertyName = "TransactionID";
             this.transactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
+            this.transactionIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.transactionIDDataGridViewTextBoxColumn.Name = "transactionIDDataGridViewTextBoxColumn";
             this.transactionIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.transactionIDDataGridViewTextBoxColumn.Width = 110;
@@ -215,6 +221,7 @@
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "BeginTime";
+            this.beginTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.beginTimeDataGridViewTextBoxColumn.Width = 145;
@@ -223,20 +230,25 @@
             // 
             this.objectNameDataGridViewTextBoxColumn.DataPropertyName = "ObjectName";
             this.objectNameDataGridViewTextBoxColumn.HeaderText = "ObjectName";
+            this.objectNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.objectNameDataGridViewTextBoxColumn.Name = "objectNameDataGridViewTextBoxColumn";
             this.objectNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.objectNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // operationDataGridViewTextBoxColumn
             // 
             this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
             this.operationDataGridViewTextBoxColumn.HeaderText = "Operation";
+            this.operationDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
             this.operationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operationDataGridViewTextBoxColumn.Width = 125;
             // 
             // redoSQLDataGridViewTextBoxColumn
             // 
             this.redoSQLDataGridViewTextBoxColumn.DataPropertyName = "RedoSQL";
             this.redoSQLDataGridViewTextBoxColumn.HeaderText = "RedoSQL  (DoubleClick cell to View full SQL)";
+            this.redoSQLDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.redoSQLDataGridViewTextBoxColumn.Name = "redoSQLDataGridViewTextBoxColumn";
             this.redoSQLDataGridViewTextBoxColumn.ReadOnly = true;
             this.redoSQLDataGridViewTextBoxColumn.Width = 320;
@@ -245,6 +257,7 @@
             // 
             this.undoSQLDataGridViewTextBoxColumn.DataPropertyName = "UndoSQL";
             this.undoSQLDataGridViewTextBoxColumn.HeaderText = "UndoSQL  (DoubleClick cell to View full SQL)";
+            this.undoSQLDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.undoSQLDataGridViewTextBoxColumn.Name = "undoSQLDataGridViewTextBoxColumn";
             this.undoSQLDataGridViewTextBoxColumn.ReadOnly = true;
             this.undoSQLDataGridViewTextBoxColumn.Width = 320;
@@ -283,30 +296,37 @@
             // statusStrip1
             // 
             this.statusStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsProg,
             this.toolStripStatusLabel1,
             this.tsTime,
             this.tsRows});
-            this.statusStrip1.Location = new System.Drawing.Point(0, -5);
+            this.statusStrip1.Location = new System.Drawing.Point(0, -11);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1278, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1278, 35);
             this.statusStrip1.TabIndex = 0;
             // 
             // tsProg
             // 
             this.tsProg.AutoSize = false;
             this.tsProg.Name = "tsProg";
-            this.tsProg.Size = new System.Drawing.Size(100, 23);
+            this.tsProg.Size = new System.Drawing.Size(100, 27);
             this.tsProg.Step = 1;
             this.tsProg.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(994, 29);
+            this.toolStripStatusLabel1.Spring = true;
             // 
             // tsTime
             // 
             this.tsTime.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.tsTime.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsTime.Name = "tsTime";
-            this.tsTime.Size = new System.Drawing.Size(75, 24);
+            this.tsTime.Size = new System.Drawing.Size(94, 29);
             this.tsTime.Text = "00:00:00";
             // 
             // tsRows
@@ -315,7 +335,7 @@
             this.tsRows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsRows.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsRows.Name = "tsRows";
-            this.tsRows.Size = new System.Drawing.Size(59, 24);
+            this.tsRows.Size = new System.Drawing.Size(73, 29);
             this.tsRows.Text = "0 rows";
             this.tsRows.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -333,11 +353,13 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnReadlog);
             this.panel1.Controls.Add(this.txtConnectionstring);
+            this.panel1.Controls.Add(this.search);
             this.panel1.Controls.Add(this.txtTablename);
             this.panel1.Controls.Add(this.dtStarttime);
             this.panel1.Controls.Add(this.dtEndtime);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -345,20 +367,33 @@
             this.panel1.Size = new System.Drawing.Size(1278, 59);
             this.panel1.TabIndex = 0;
             // 
-            // toolStripStatusLabel1
+            // search
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(996, 24);
-            this.toolStripStatusLabel1.Spring = true;
+            this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Location = new System.Drawing.Point(970, 31);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(170, 30);
+            this.search.TabIndex = 43;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(885, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 23);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Search";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1284, 673);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Analyzer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -406,6 +441,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tsRows;
         private System.Windows.Forms.ToolStripProgressBar tsProg;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TextBox search;
+        private System.Windows.Forms.Label label5;
     }
 }
 

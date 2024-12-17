@@ -34,16 +34,22 @@ namespace MSSQLLogAnalyzer
         private void Form1_Load(object sender, EventArgs e)
         {
             config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-            
+
             //Connection String: Please change below connection string for your environment.
+
+            //Table Name: Need include schema name(like dbo.Table1), When blank means query all tables 's logs, you can change it for need.
+            txtTablename.Text = "";
             txtConnectionstring.Text = config.AppSettings.Settings["DefaultConnectionString"].Value;
 
             //Time Range: Default to read at last 10 seconds 's logs, you can change the time range for need.
             dtStarttime.Value = Convert.ToDateTime(DateTime.Now.AddSeconds(-10).ToString("yyyy/MM/dd HH:mm:ss"));
             dtEndtime.Value = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
 
-            //Table Name: Need include schema name(like dbo.Table1), When blank means query all tables 's logs, you can change it for need.
-            txtTablename.Text = "";
+            ResetForm();
+        }
+
+        public void ResetForm() {
+           
 
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
@@ -54,6 +60,7 @@ namespace MSSQLLogAnalyzer
             Init();
         }
 
+
         private void Form1_Shown(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
@@ -63,12 +70,13 @@ namespace MSSQLLogAnalyzer
         {
             try
             {
-                Init();
+                //Init();
+                ResetForm() ;
                 btnReadlog.Enabled = false;
 
                 logs = new DatabaseLog[] { };
                 bindingSource1.DataSource = logs;
-                bindingSource1.ResetBindings(false);
+                bindingSource1.ResetBindings(true);
                 timer.Enabled = true;
                 beginruntime = DateTime.Now;
 
@@ -93,17 +101,29 @@ namespace MSSQLLogAnalyzer
 
         private void Readlog()
         {
-            string ConnectionString, StartTime, EndTime, TableName;
+            string ConnectionString, StartTime, EndTime, TableName,SearchTerm;
 
             ConnectionString = txtConnectionstring.Text;
             StartTime = dtStarttime.Value.ToString("yyyy-MM-dd HH:mm:ss");
             EndTime = dtEndtime.Value.ToString("yyyy-MM-dd HH:mm:ss");
             TableName = txtTablename.Text.TrimEnd();
-            
+            SearchTerm = search.Text.TrimEnd();
             dbla = new DatabaseLogAnalyzer(ConnectionString);
-            logs = dbla.ReadLog(StartTime, EndTime, TableName);
+            logs = dbla.ReadLog(StartTime, EndTime, TableName, SearchTerm);
+            UpdateDataGridView(logs);
         }
+        private void UpdateDataGridView(DatabaseLog[] newLogs)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => UpdateDataGridView(newLogs)));
+                return;
+            }
 
+            logs = newLogs;
+            bindingSource1.DataSource = logs;
+            bindingSource1.ResetBindings(false);
+        }
         private void timer_elapsed(object sender, ElapsedEventArgs e)
         {
             Invoke(new ShowResult(fshowresult), new object[] { dbla });

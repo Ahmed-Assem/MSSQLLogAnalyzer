@@ -32,7 +32,7 @@ public partial class UserDefinedFunctions
         }
 
         xc = new DatabaseLogAnalyzer(pconnectionstring);
-        r = xc.ReadLog(pbegintime, pendtime, pobjectname);
+        r = xc.ReadLog(pbegintime, pendtime, pobjectname,"");
         
         return r;
     }
